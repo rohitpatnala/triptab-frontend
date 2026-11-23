@@ -1,0 +1,862 @@
+
+/* =========================================================
+   TripTab — Trip Details
+   Microsoft Fluent / Azure-inspired enterprise workspace
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Page foundation
+   --------------------------------------------------------- */
+
+.trip-details-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  color: #242424;
+
+  font-family:
+    "Segoe UI",
+    "Segoe UI Variable",
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+.trip-details-page *,
+.trip-details-page *::before,
+.trip-details-page *::after {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   2. Top toolbar
+   --------------------------------------------------------- */
+
+.trip-details-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-height: 56px;
+  padding: 0 28px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.trip-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ---------------------------------------------------------
+   3. Main workspace
+   --------------------------------------------------------- */
+
+.trip-details-main {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 28px 32px;
+}
+
+/* ---------------------------------------------------------
+   4. Trip heading
+   --------------------------------------------------------- */
+
+.trip-details-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+.trip-title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+
+  border-radius: 6px;
+
+  background: #deecf9;
+  color: #0078d4;
+}
+
+.trip-heading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+
+  min-width: 0;
+}
+
+/* Breadcrumb */
+
+.trip-breadcrumb {
+  display: block;
+  margin: 0 0 4px;
+
+  color: #0078d4;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+}
+
+/* Main trip title */
+
+.trip-main-title {
+  display: block;
+  margin: 0;
+
+  color: #242424;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: -0.4px;
+}
+
+/* Destination */
+
+.trip-destination {
+  display: block;
+  margin: 0;
+
+  color: #616161;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* Fallback for existing markup */
+
+.trip-details-heading h2 {
+  margin: 0 0 4px;
+
+  color: #242424;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: -0.4px;
+}
+
+.trip-details-heading p {
+  margin: 0;
+  color: #616161;
+}
+
+/* ---------------------------------------------------------
+   5. Trip metadata strip
+   --------------------------------------------------------- */
+
+.trip-info-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  min-height: 50px;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+
+.trip-info-strip > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #616161;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.trip-info-strip svg {
+  color: #616161;
+  flex-shrink: 0;
+}
+
+/* Trip status */
+
+.trip-status {
+  margin-left: auto;
+  padding: 5px 10px;
+
+  background: #dff6dd;
+  color: #107c10;
+  border-radius: 4px;
+
+  font-size: 10px !important;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.35px;
+}
+
+/* ---------------------------------------------------------
+   6. KPI cards
+   --------------------------------------------------------- */
+
+.trip-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+
+  margin-bottom: 26px;
+}
+
+.trip-kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  min-width: 0;
+  padding: 20px 22px;
+
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.025);
+
+  transition:
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.trip-kpi-card:hover {
+  border-color: #d1d1d1;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.055);
+}
+
+.trip-kpi-card h2 {
+  display: block;
+  margin: 2px 0;
+
+  color: #242424;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: -0.4px;
+}
+
+/* ---------------------------------------------------------
+   7. Main content grid
+   --------------------------------------------------------- */
+
+.trip-content-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(300px, 1fr);
+
+  gap: 22px;
+  align-items: start;
+}
+
+.trip-side-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------
+   8. Reusable panels
+   --------------------------------------------------------- */
+
+.trip-panel {
+  min-width: 0;
+  padding: 22px;
+
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.025);
+}
+
+/* Panel heading layout */
+
+.trip-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.trip-panel-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+/* Section title */
+
+.trip-section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.trip-section-title {
+  display: block;
+  margin: 0;
+
+  color: #242424;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+/* Section subtitle */
+
+.trip-section-subtitle {
+  display: block;
+  margin: 0;
+
+  color: #616161;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+/* Existing heading fallback */
+
+.trip-panel-header h2 {
+  display: block;
+  margin: 0 0 4px;
+
+  color: #242424;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.2px;
+}
+
+.trip-panel-header p {
+  display: block;
+  margin: 0;
+
+  color: #616161;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* ---------------------------------------------------------
+   9. Expense timeline
+   --------------------------------------------------------- */
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 66px;
+  padding: 14px 0;
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.expense-row:last-child {
+  border-bottom: none;
+}
+
+/* Category icon container */
+
+.expense-category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+
+  border-radius: 6px;
+}
+
+/* Expense name and metadata */
+
+.expense-description {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.expense-description span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Fluent UI expense title */
+
+.expense-description .fui-Text:first-child {
+  color: #242424;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+/* Fluent UI expense metadata */
+
+.expense-description .fui-Text:last-child {
+  color: #616161;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+/* Amount and date */
+
+.expense-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.expense-amount .fui-Text:first-child {
+  color: #242424;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19px;
+}
+
+.expense-amount .fui-Text:last-child {
+  color: #616161;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.expense-amount p {
+  margin: 0;
+  font-size: 12px;
+}
+
+/* ---------------------------------------------------------
+   10. Participants
+   --------------------------------------------------------- */
+
+.member-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 60px;
+  padding: 12px 0;
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.member-row:last-child {
+  border-bottom: none;
+}
+
+/* Avatar */
+
+.member-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+
+  border-radius: 50%;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Member name and balance label */
+
+.member-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.member-info span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.member-info .fui-Text:first-child {
+  color: #242424;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.member-info .fui-Text:last-child {
+  color: #616161;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+/* Member net balances */
+
+.member-row > span:last-child {
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.balance-positive {
+  color: #107c10;
+}
+
+.balance-negative {
+  color: #a4262c;
+}
+
+/* ---------------------------------------------------------
+   11. Category breakdown
+   --------------------------------------------------------- */
+
+.category-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.category-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.category-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.category-label p {
+  margin: 0;
+
+  color: #424242;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.category-item-header > span {
+  color: #424242;
+  white-space: nowrap;
+
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Category indicator */
+
+.category-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+
+  border-radius: 50%;
+}
+
+/* Category progress track */
+
+.category-progress {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.category-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+
+  transition: width 250ms ease;
+}
+
+/* Add expense and settlement interactions */
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.form-two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.participant-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+
+.participant-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.split-value-input {
+  width: 100px;
+}
+
+.settlement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settlement-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.settlement-row:last-child {
+  border-bottom: none;
+}
+
+.empty-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 80px;
+  color: #616161;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------
+   12. Responsive layout
+   --------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+  .trip-content-grid {
+    grid-template-columns:
+      minmax(0, 1.4fr)
+      minmax(280px, 1fr);
+  }
+
+  .trip-details-main {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .trip-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-side-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .trip-details-main {
+    padding: 20px 16px;
+  }
+
+  .trip-details-toolbar {
+    padding: 0 16px;
+  }
+
+  .trip-details-heading {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .trip-title-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .trip-main-title {
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .trip-section-title {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .trip-kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .trip-kpi-card {
+    padding: 16px;
+  }
+
+  .trip-side-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-info-strip {
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .trip-status {
+    margin-left: 0;
+  }
+
+  .trip-panel {
+    padding: 16px;
+  }
+
+  .trip-panel-header {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trip-toolbar-actions button:first-child {
+    display: none;
+  }
+
+  .trip-details-heading h2 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .trip-breadcrumb {
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .expense-row {
+    gap: 9px;
+  }
+
+  .expense-category-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .expense-description .fui-Text:last-child {
+    font-size: 11px;
+  }
+
+  .expense-amount .fui-Text:first-child {
+    font-size: 12px;
+  }
+
+  .expense-amount .fui-Text:last-child {
+    font-size: 10px;
+  }
+
+  .member-row {
+    gap: 9px;
+  }
+
+  .form-two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .settlement-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ---------------------------------------------------------
+   13. Accessibility and motion preferences
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .trip-kpi-card,
+  .category-progress-fill {
+    transition: none;
+  }
+}

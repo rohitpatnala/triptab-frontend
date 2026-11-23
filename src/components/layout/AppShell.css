@@ -1,0 +1,22 @@
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #faf9f8;
+}
+
+.app-workspace {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    align-items: stretch;
+  }
+
+  .app-workspace {
+    width: calc(100% - 64px);
+  }
+}

@@ -1,0 +1,93 @@
+
+/* Global reset */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global typography */
+body {
+  font-family:
+    "Segoe UI",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  background-color: #f5f7fb;
+  color: #172554;
+}
+
+/* Remove default button and input font inconsistencies */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+
+/* TripTab — enterprise typography foundation */
+
+:root {
+  font-family:
+    "Segoe UI",
+    "Segoe UI Variable",
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Arial,
+    sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-optical-sizing: auto;
+
+  color: #242424;
+  background: #f5f5f5;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: normal;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Prevent accidental letter-spacing inheritance */
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+label {
+  letter-spacing: normal;
+}
+
+/* Fluent UI text should have predictable line height */
+.fui-Text {
+  line-height: 1.45;
+}
